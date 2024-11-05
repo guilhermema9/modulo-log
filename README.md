@@ -87,7 +87,8 @@ modulo-log
 │   │   │       └── modulolog
 │   │   │           ├── controller
 │   │   │           ├── model
-│   │   │           └── repository
+│   │   │           ├── repository
+│   │   │           └── security
 │   │   └── resources
 │   │       └── application.properties
 │   └── test
