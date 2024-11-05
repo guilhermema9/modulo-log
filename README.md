@@ -14,6 +14,8 @@ Projeto desenvolvido para a disciplina de Novas Tecnologias em Desenvolvimento p
 **Framework de Persistência:** Spring Data JPA
 
 **Banco de Dados:** H2
+**Documentação** Spring REST Docs
+**IDE:** JetBrains Intellij Idea
 
 **IDE:** JetBrains Intellij Idea
 
