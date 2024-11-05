@@ -30,7 +30,7 @@ Utilize o Spring Initializr para criar o projeto e suas dependências em: https:
 
 **Packaging:** Jar
 
-**Dependências: (obrigatórias)** Spring Web, Spring Data JPA, H2 Database.
+**Dependências: (obrigatórias)** Spring Web, Spring Data JPA, Spring Security, H2 Database.
 
 **Dependências: (opcionais)** Spring Boot Dev Tools, Lombok, dentre outras (conforme necessidade).
 
