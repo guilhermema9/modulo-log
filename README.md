@@ -22,7 +22,13 @@ Projeto desenvolvido para a disciplina de Novas Tecnologias em Desenvolvimento p
 
 ## Instalação
 
-Utilize o Spring Initializr para criar o projeto e suas dependências em: https://start.spring.io/
+Certifique-se de estar com o JDK 17 (LTS), ou superior instalado. Se necessário, para instalar utilize o seguinte comando (distribuições Ubuntu/Debian):
+
+```bash
+sudo apt-get update && apt-get -y install openjdk-17-jdk 
+```
+
+Para instalar e configurar o SpringBoot utilize o Spring Initializr para criar o projeto e suas dependências em: https://start.spring.io/
 
 **Gerenciador de Dependências:** Maven
 
