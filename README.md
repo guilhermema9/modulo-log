@@ -15,7 +15,7 @@ Projeto desenvolvido para a disciplina de Novas Tecnologias em Desenvolvimento p
 
 **Banco de Dados:** H2  
 
-**Documentação** Spring REST Docs
+**Documentação:** Spring REST Docs
 
 **IDE:** JetBrains Intellij Idea
 
