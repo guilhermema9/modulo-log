@@ -18,33 +18,50 @@ import lombok.ToString;
 @ToString
 @Entity
 public class Reservas {
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @JoinColumn(nullable = false)
+
+    @Column(nullable = false)
     private String nomeEvento;
-    @JoinColumn(nullable = false)
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private TipoEvento tipoEvento;
-    @JoinColumn(nullable = false)
+
     @ManyToOne
+    @JoinColumn(name = "responsavel_id", nullable = false)
     private Responsavel responsavel;
-    @JoinColumn(nullable = false)
+
+    @Column(nullable = false)
     private String contatoResponsavel;
-    @JoinColumn(nullable = false)
+
+    @Column(nullable = false)
     private LocalDateTime dataReserva;
-    @JoinColumn(nullable = false)
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private Periodo periodo;
-    @JoinColumn(nullable = false)
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private Turno turno;
+
     @ManyToOne
-    @JoinColumn(nullable = false)
+    @JoinColumn(name = "espaco_fisico_id", nullable = false)
     private EspacoFisico espacoFisico;
-    @JoinColumn(nullable = false)
+
+    @Column(nullable = false)
     private LocalDateTime horaInicio;
-    @JoinColumn(nullable = false)
+
+    @Column(nullable = false)
     private LocalDateTime horaTermino;
-    @JoinColumn(nullable = false)
+
+    @Column(nullable = false)
     private int totalParticipantes;
-    @JoinColumn(nullable = false)
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private SituacaoReserva situacao;
 }

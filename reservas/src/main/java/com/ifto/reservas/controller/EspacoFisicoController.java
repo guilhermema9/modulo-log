@@ -1,7 +1,7 @@
 package com.ifto.reservas.controller;
 
 import com.ifto.reservas.model.EspacoFisico;
-import com.ifto.reservas.repository.GenericRepository;
+import com.ifto.reservas.repository.EspacoFisicoRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class EspacoFisicoController {
 
     @Autowired
-    GenericRepository genericRepository;
+    EspacoFisicoRepository espacoFisicoRepository;
 
     @GetMapping("/form")
     public ModelAndView form (EspacoFisico espacoFisico, ModelMap model){

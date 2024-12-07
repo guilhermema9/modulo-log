@@ -4,10 +4,7 @@ import java.time.LocalDateTime;
 
 import com.ifto.reservas.model.enums.SituacaoEspaco;
 import com.ifto.reservas.model.enums.TipoEspaco;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,27 +16,40 @@ import lombok.ToString;
 @ToString
 @Entity
 public class EspacoFisico {
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @JoinColumn(nullable = false)
+
+    @Column(nullable = false)
     private String nome;
-    @JoinColumn(nullable = false)
+
+    @Column(nullable = false)
     private String descricao;
-    @JoinColumn(nullable = false)
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private TipoEspaco tipo;
-    @JoinColumn(nullable = false)
+
+    @Column(nullable = false)
     private int capacidade;
-    @JoinColumn(nullable = false)
+
+    @Column(nullable = false)
     private String recursos;
-    @JoinColumn(nullable = false)
+
+    @Column(nullable = false)
     private LocalDateTime dataCadastro;
-    @JoinColumn(nullable = false)
+
+    @Column(nullable = false)
     private LocalDateTime dataProcedimento;
-    @JoinColumn(nullable = false)
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private SituacaoEspaco situacao;
-    @JoinColumn(nullable = false)
+
+    @Column(nullable = false)
     private String localizacao;
-    @JoinColumn(nullable = false)
+
+    @Column
     private String notasAdicionais;
 }

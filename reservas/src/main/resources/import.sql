@@ -1,20 +1,22 @@
--- Mock data for EspacoFisico
-INSERT INTO espaco_fisico (id, nome, descricao, tipo, capacidade, recursos, data_cadastro, data_procedimento, situacao,
-                           localizacao, notas_adicionais)
-VALUES (1, 'Sala 101', 'Sala de aula com 30 lugares', 'SALA_DE_AULA', 30, '["Projetor", "Ar Condicionado"]',
-        '2023-01-01T10:00:00', '2023-01-01T10:00:00', 'ATIVO', 'Bloco A', 'Nenhuma'),
-       (2, 'Auditório Principal', 'Auditório com capacidade para 200 pessoas', 'AUDITORIO', 200,
-        '["Sistema de Som", "Microfone"]', '2023-01-01T10:00:00', '2023-01-01T10:00:00', 'ATIVO', 'Bloco B', 'Nenhuma'),
-       (3, 'Laboratório de Informática', 'Laboratório com 20 computadores', 'LABORATORIO', 20,
-        '["Computadores", "Projetor"]', '2023-01-01T10:00:00', '2023-01-01T10:00:00', 'MANUTENCAO', 'Bloco C',
-        'Nenhuma');
+-- Inserindo registros em Responsavel
+INSERT INTO Responsavel (id, nome, cpf)
+VALUES (1, 'João da Silva', '123.456.789-00');
+INSERT INTO Responsavel (id, nome, cpf)
+VALUES (2, 'Maria Oliveira', '987.654.321-00');
 
--- Mock data for Reservas
-INSERT INTO reservas (id, nome_evento, tipo_evento, responsavel, contato_responsavel, data_reserva, periodo, turno,
-                      espaco_fisico_id, hora_inicio, hora_termino, total_participantes, situacao)
-VALUES (1, 'Aula de Matemática', 'AULA', 'Prof. João', 'joao@example.com', '2023-01-10T08:00:00', 'MANHA', 'PRIMEIRO',
-        1, '2023-01-10T08:00:00', '2023-01-10T10:00:00', 30, 'CONFIRMADA'),
-       (2, 'Palestra de Tecnologia', 'PALESTRA', 'Prof. Maria', 'maria@example.com', '2023-01-15T14:00:00', 'TARDE',
-        'SEGUNDO', 2, '2023-01-15T14:00:00', '2023-01-15T16:00:00', 150, 'CONFIRMADA'),
-       (3, 'Aula de Programação', 'AULA', 'Prof. Carlos', 'carlos@example.com', '2023-01-20T10:00:00', 'MANHA',
-        'SEGUNDO', 3, '2023-01-20T10:00:00', '2023-01-20T12:00:00', 20, 'CANCELADA');
+-- Inserindo registros em EspacoFisico
+INSERT INTO EspacoFisico (id, nome, descricao, tipo, capacidade, recursos, dataCadastro, dataProcedimento, situacao,
+                          localizacao, notasAdicionais)
+VALUES (1, 'Auditório Central', 'Auditório para eventos de grande porte', 'AUDITORIO', 200, 'Projetor, Wi-Fi, Som',
+        '2024-12-01T10:00:00', '2024-12-01T10:00:00', 'ATIVO', 'Prédio A', 'Sem notas adicionais'),
+       (2, 'Laboratório de Informática', 'Laboratório com computadores para aulas práticas', 'LABORATORIO', 30,
+        'Computadores, Projetor, Wi-Fi', '2024-12-01T10:00:00', '2024-12-01T10:00:00', 'MANUTENCAO', 'Prédio B',
+        'Reservado para manutenções');
+
+-- Inserindo registros em Reservas
+INSERT INTO Reservas (id, nomeEvento, tipoEvento, responsavel_id, contatoResponsavel, dataReserva, periodo, turno,
+                      espacoFisico_id, horaInicio, horaTermino, totalParticipantes, situacao)
+VALUES (1, 'Aula de Matemática', 'AULA', 1, 'joao.silva@ifto.edu.br', '2024-12-15T08:00:00', 'MANHA', 'PRIMEIRO', 1,
+        '2024-12-15T08:00:00', '2024-12-15T10:00:00', 30, 'CONFIRMADA'),
+       (2, 'Palestra de Tecnologia', 'PALESTRA', 2, 'maria.oliveira@ifto.edu.br', '2024-12-16T14:00:00', 'TARDE',
+        'SEGUNDO', 2, '2024-12-16T14:00:00', '2024-12-16T16:00:00', 100, 'CANCELADA');
