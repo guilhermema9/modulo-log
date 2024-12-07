@@ -26,7 +26,8 @@ public class Reservas {
     @JoinColumn(nullable = false)
     private TipoEvento tipoEvento;
     @JoinColumn(nullable = false)
-    private String responsavel;
+    @ManyToOne
+    private Responsavel responsavel;
     @JoinColumn(nullable = false)
     private String contatoResponsavel;
     @JoinColumn(nullable = false)
