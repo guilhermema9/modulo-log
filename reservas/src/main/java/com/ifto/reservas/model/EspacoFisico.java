@@ -2,6 +2,7 @@ package com.ifto.reservas.model;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ifto.reservas.model.enums.SituacaoEspaco;
 import com.ifto.reservas.model.enums.TipoEspaco;
 import jakarta.persistence.*;
