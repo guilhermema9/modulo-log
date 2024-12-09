@@ -1,11 +1,8 @@
-package com.ifto.reservas.model.configuration;
+package com.ifto.reservas.repository;
 
 import com.ifto.reservas.model.EspacoFisico;
 import com.ifto.reservas.model.Reservas;
 import com.ifto.reservas.model.Responsavel;
-import com.ifto.reservas.repository.EspacoFisicoRepository;
-import com.ifto.reservas.repository.ReservasRepository;
-import com.ifto.reservas.repository.ResponsavelRepository;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

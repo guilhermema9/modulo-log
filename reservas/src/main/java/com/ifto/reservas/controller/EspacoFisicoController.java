@@ -46,7 +46,7 @@ public class EspacoFisicoController {
     }
 
 
-    @PutMapping("/editar/{idEspaco}")
+    @PutMapping("/editar")
     EspacoFisico editar(@RequestBody EspacoFisico espacoFisico) {
 
         return espacoFisicoRepository.save(espacoFisico);

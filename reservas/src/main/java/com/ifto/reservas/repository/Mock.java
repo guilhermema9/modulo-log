@@ -1,4 +1,4 @@
-package com.ifto.reservas.model.configuration;
+package com.ifto.reservas.repository;
 
 import com.ifto.reservas.model.EspacoFisico;
 import com.ifto.reservas.model.Reservas;
