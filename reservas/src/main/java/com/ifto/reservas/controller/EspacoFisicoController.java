@@ -17,13 +17,11 @@ public class EspacoFisicoController {
     @Autowired
     EspacoFisicoRepository espacoFisicoRepository;
 
-
     @GetMapping("/list")
     List<EspacoFisico> espacoFisicosList() {
 
         return espacoFisicoRepository.findAll();
     }
-
 
     @GetMapping("/{idEspaco}")
     Optional<EspacoFisico> espacoById(@PathVariable Long idEspaco) {
@@ -31,20 +29,17 @@ public class EspacoFisicoController {
         return espacoFisicoRepository.findById(idEspaco);
     }
 
-
     @PostMapping("/add")
     EspacoFisico cadastrar(@RequestBody EspacoFisico espacoFisico) {
 
         return espacoFisicoRepository.save(espacoFisico);
     }
 
-
     @DeleteMapping("/deletar/{idEspaco}")
     void deletar(@PathVariable Long idEspaco) {
 
         espacoFisicoRepository.deleteById(idEspaco);
     }
-
 
     @PutMapping("/editar")
     EspacoFisico editar(@RequestBody EspacoFisico espacoFisico) {
