@@ -30,14 +30,6 @@ public class ResponsavelController {
         return responsavelRepository.findById(idEspaco);
     }
 
-
-    @PostMapping("/add")
-    Responsavel cadastrar(@RequestBody Responsavel responsavel) {
-
-        return responsavelRepository.save(responsavel);
-    }
-
-
     @DeleteMapping("/deletar/{idEspaco}")
     void deletar(@PathVariable Long idEspaco) {
 
@@ -45,8 +37,8 @@ public class ResponsavelController {
     }
 
 
-    @PutMapping("/editar")
-    Responsavel editar(@RequestBody Responsavel responsavel) {
+    @PutMapping("/save")
+    Responsavel save(@RequestBody Responsavel responsavel) {
 
         return responsavelRepository.save(responsavel);
     }

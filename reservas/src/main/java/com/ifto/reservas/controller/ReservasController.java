@@ -32,18 +32,14 @@ public class ReservasController {
         return reservasRepository.findById(idReserva);
     }
 
-    @PostMapping("/add")
-    Reservas cadastrar(@RequestBody Reservas espacoFisico) {
-        return reservasRepository.save(espacoFisico);
-    }
 
     @DeleteMapping("/deletar/{idReserva}")
     void deletar(@PathVariable Long idReserva) {
         reservasRepository.deleteById(idReserva);
     }
 
-    @PutMapping("/editar")
-    Reservas editar(@RequestBody Reservas espacoFisico) {
+    @PutMapping("/save")
+    Reservas save(@RequestBody Reservas espacoFisico) {
         return reservasRepository.save(espacoFisico);
     }
 

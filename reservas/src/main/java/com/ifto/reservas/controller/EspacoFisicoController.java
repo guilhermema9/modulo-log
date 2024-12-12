@@ -1,5 +1,6 @@
 package com.ifto.reservas.controller;
 
+import com.ifto.reservas.controller.errors.EspacoNotFoundExeption;
 import com.ifto.reservas.model.EspacoFisico;
 import com.ifto.reservas.repository.EspacoFisicoRepository;
 import jakarta.transaction.Transactional;
@@ -26,13 +27,9 @@ public class EspacoFisicoController {
     @GetMapping("/{idEspaco}")
     Optional<EspacoFisico> espacoById(@PathVariable Long idEspaco) {
 
-        return espacoFisicoRepository.findById(idEspaco);
-    }
-
-    @PostMapping("/add")
-    EspacoFisico cadastrar(@RequestBody EspacoFisico espacoFisico) {
-
-        return espacoFisicoRepository.save(espacoFisico);
+        return Optional.ofNullable(espacoFisicoRepository.findById(idEspaco).orElseThrow(
+                () -> new EspacoNotFoundExeption(idEspaco))
+        );
     }
 
     @DeleteMapping("/deletar/{idEspaco}")
@@ -41,9 +38,8 @@ public class EspacoFisicoController {
         espacoFisicoRepository.deleteById(idEspaco);
     }
 
-    @PutMapping("/editar")
-    EspacoFisico editar(@RequestBody EspacoFisico espacoFisico) {
-
+    @PutMapping("/save")
+    EspacoFisico save(@RequestBody EspacoFisico espacoFisico) {
         return espacoFisicoRepository.save(espacoFisico);
     }
 }
