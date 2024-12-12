@@ -1,7 +1,7 @@
 package com.ifto.reservas.repository;
 
 import com.ifto.reservas.model.EspacoFisico;
-import com.ifto.reservas.model.Reservas;
+import com.ifto.reservas.model.Reserva;
 import com.ifto.reservas.model.Responsavel;
 import com.ifto.reservas.model.enums.*;
 
@@ -31,12 +31,12 @@ public class Mock {
     }
 
 
-    public static List<Reservas> getReservas() {
+    public static List<Reserva> getReservas() {
 
         return Arrays.asList(
-                new Reservas(1L, "Aula de Matemática", TipoEvento.SEMINARIO, getResponsaveis().get(0), "joao@example.com", LocalDateTime.of(2023, 1, 10, 8, 0), Periodo.MATUTINO, Turno.PRIMEIRO, getEspacosFisicos().get(0), LocalDateTime.of(2023, 1, 10, 8, 0), LocalDateTime.of(2023, 1, 10, 10, 0), 30, SituacaoReserva.CONFIRMADA),
-                new Reservas(2L, "Palestra de Tecnologia", TipoEvento.WORKSHOP, getResponsaveis().get(1), "maria@example.com", LocalDateTime.of(2023, 1, 15, 14, 0), Periodo.VESPERTINO, Turno.SEGUNDO, getEspacosFisicos().get(1), LocalDateTime.of(2023, 1, 15, 14, 0), LocalDateTime.of(2023, 1, 15, 16, 0), 150, SituacaoReserva.CONFIRMADA),
-                new Reservas(3L, "Reuniao sobre Programação", TipoEvento.REUNIAO, getResponsaveis().get(2), "carlos@example.com", LocalDateTime.of(2023, 1, 20, 10, 0), Periodo.MATUTINO, Turno.SEGUNDO, getEspacosFisicos().get(2), LocalDateTime.of(2023, 1, 20, 10, 0), LocalDateTime.of(2023, 1, 20, 12, 0), 20, SituacaoReserva.CANCELADA)
+                new Reserva(1L, "Aula de Matemática", TipoEvento.SEMINARIO, getResponsaveis().get(0), "joao@example.com", LocalDateTime.of(2023, 1, 10, 8, 0), Periodo.MATUTINO, Turno.PRIMEIRO, getEspacosFisicos().get(0), LocalDateTime.of(2023, 1, 10, 8, 0), LocalDateTime.of(2023, 1, 10, 10, 0), 30, SituacaoReserva.CONFIRMADA),
+                new Reserva(2L, "Palestra de Tecnologia", TipoEvento.WORKSHOP, getResponsaveis().get(1), "maria@example.com", LocalDateTime.of(2023, 1, 15, 14, 0), Periodo.VESPERTINO, Turno.SEGUNDO, getEspacosFisicos().get(1), LocalDateTime.of(2023, 1, 15, 14, 0), LocalDateTime.of(2023, 1, 15, 16, 0), 150, SituacaoReserva.CONFIRMADA),
+                new Reserva(3L, "Reuniao sobre Programação", TipoEvento.REUNIAO, getResponsaveis().get(2), "carlos@example.com", LocalDateTime.of(2023, 1, 20, 10, 0), Periodo.MATUTINO, Turno.SEGUNDO, getEspacosFisicos().get(2), LocalDateTime.of(2023, 1, 20, 10, 0), LocalDateTime.of(2023, 1, 20, 12, 0), 20, SituacaoReserva.CANCELADA)
         );
     }
 

@@ -45,7 +45,7 @@ public class EspacoFisicoController {
     }
 
     @DeleteMapping("/deletar/{idEspaco}")
-    void deletar(@PathVariable Long idEspaco) {
+    void delete(@PathVariable Long idEspaco) {
 
         espacoFisicoRepository.deleteById(idEspaco);
     }

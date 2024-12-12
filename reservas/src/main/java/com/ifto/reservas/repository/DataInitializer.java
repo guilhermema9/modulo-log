@@ -1,7 +1,7 @@
 package com.ifto.reservas.repository;
 
 import com.ifto.reservas.model.EspacoFisico;
-import com.ifto.reservas.model.Reservas;
+import com.ifto.reservas.model.Reserva;
 import com.ifto.reservas.model.Responsavel;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,9 +33,9 @@ public class DataInitializer {
             responsavelRepository.save(responsavel);
         }
 
-        // Inserir dados de Reservas
-        for (Reservas reservas : Mock.getReservas()) {
-            reservasRepository.save(reservas);
+        // Inserir dados de Reserva
+        for (Reserva reserva : Mock.getReservas()) {
+            reservasRepository.save(reserva);
         }
     }
 }
