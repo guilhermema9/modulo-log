@@ -42,14 +42,11 @@ public class ResponsavelController {
                 linkTo(methodOn(ResponsavelController.class).one(idResponsavel)).withSelfRel(),
                 linkTo(methodOn(ResponsavelController.class).all()).withRel("Responsavel"));
     }
-
     @DeleteMapping("/deletar/{idEspaco}")
     void deletar(@PathVariable Long idEspaco) {
 
         responsavelRepository.deleteById(idEspaco);
     }
-
-
     @PutMapping("/save")
     Responsavel save(@RequestBody Responsavel responsavel) {
 
