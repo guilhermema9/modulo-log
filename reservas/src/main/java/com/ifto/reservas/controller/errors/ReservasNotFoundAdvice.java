@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class ReservasNotFoundAdvice {
     @ExceptionHandler(ReservasNotFoundExeption.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    String reservaNotFoundHandler(EspacoNotFoundExeption ex) {
+    String reservaNotFoundHandler(ReservasNotFoundExeption ex) {
         return ex.getMessage();
     }
 
