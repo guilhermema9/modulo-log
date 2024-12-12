@@ -1,6 +1,7 @@
 package com.ifto.reservas.controller;
 
 import com.ifto.reservas.controller.errors.ReservasNotFoundExeption;
+import com.ifto.reservas.controller.errors.ResponsavelNotFoundExeption;
 import com.ifto.reservas.model.Responsavel;
 import com.ifto.reservas.repository.ResponsavelRepository;
 import jakarta.transaction.Transactional;
@@ -36,7 +37,7 @@ public class ResponsavelController {
     EntityModel<Responsavel> one(@PathVariable Long idResponsavel) {
 
         Responsavel reserva = responsavelRepository.findById(idResponsavel).orElseThrow(
-                () -> new ReservasNotFoundExeption(idResponsavel)
+                () -> new ResponsavelNotFoundExeption(idResponsavel)
         );
         return  EntityModel.of(reserva,
                 linkTo(methodOn(ResponsavelController.class).one(idResponsavel)).withSelfRel(),
