@@ -53,4 +53,10 @@ public class ResponsavelController {
 
         return responsavelRepository.save(responsavel);
     }
+    @GetMapping("/filter")
+    List<Responsavel> filterByCustom(
+            @RequestParam(required = false) String nome,
+            @RequestParam(required = false) String cpf) {
+        return responsavelRepository.findByFiltrosPersonalizados(nome, cpf);
+    }
 }
