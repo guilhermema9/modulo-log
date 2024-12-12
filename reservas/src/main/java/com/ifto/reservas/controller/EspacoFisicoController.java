@@ -5,10 +5,15 @@ import com.ifto.reservas.model.EspacoFisico;
 import com.ifto.reservas.repository.EspacoFisicoRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.EntityModel;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @Transactional
 @RestController
@@ -17,19 +22,26 @@ public class EspacoFisicoController {
 
     @Autowired
     EspacoFisicoRepository espacoFisicoRepository;
+    @GetMapping("/all")
+    CollectionModel<EntityModel<EspacoFisico>> all() {
 
-    @GetMapping("/list")
-    List<EspacoFisico> espacoFisicosList() {
+        List<EntityModel<EspacoFisico>> espacos = espacoFisicoRepository.findAll().stream()
+                .map(espacoFisico -> EntityModel.of(espacoFisico,
+                        linkTo(methodOn(EspacoFisicoController.class).one(espacoFisico.getId())).withSelfRel(),
+                        linkTo(methodOn(EspacoFisicoController.class).all()).withRel("Espaços")))
+                .collect(Collectors.toList());
 
-        return espacoFisicoRepository.findAll();
+        return CollectionModel.of(espacos,linkTo(methodOn(EspacoFisicoController.class).all()).withSelfRel());
     }
-
     @GetMapping("/{idEspaco}")
-    Optional<EspacoFisico> espacoById(@PathVariable Long idEspaco) {
+    EntityModel<EspacoFisico> one(@PathVariable Long idEspaco) {
 
-        return Optional.ofNullable(espacoFisicoRepository.findById(idEspaco).orElseThrow(
-                () -> new EspacoNotFoundExeption(idEspaco))
+        EspacoFisico espacoFisico = espacoFisicoRepository.findById(idEspaco).orElseThrow(
+                () -> new EspacoNotFoundExeption(idEspaco)
         );
+        return  EntityModel.of(espacoFisico,
+                linkTo(methodOn(EspacoFisicoController.class).one(idEspaco)).withSelfRel(),
+                linkTo(methodOn(EspacoFisicoController.class).all()).withRel("Espaços"));
     }
 
     @DeleteMapping("/deletar/{idEspaco}")
