@@ -66,7 +66,7 @@ public class ReservasController {
     }
 
 
-    @GetMapping("/filtro-personalizado")
+    @GetMapping("/search")
     public ResponseEntity<List<Reserva>> filtroPersonalizadoReservas(
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataInicio,
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataFim,
